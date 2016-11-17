@@ -58,6 +58,8 @@ class Cluster
         ClusterNode<T>* getPoints(); //epistrefei thn lista me ta shmeia
         T getCentroid();
 
+        void setCentroid(T centr);
+
         ClusterNode<T>* insertPoint(T point); //epistrefei to node pou dhmiourgithike gia na kanoume set to distance kai to secondCentroid
         deletePoint(ClusterNode<T>* delPoint); //diagrafh tou shmeiou
 
