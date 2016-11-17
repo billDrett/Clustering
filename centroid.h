@@ -3,6 +3,7 @@
 
 #include "List.h"
 #include "Node.h"
+#include "clusterNode.h"
 
 //gia na pareis ta stoixeia tou cluster kaneis
 /*
@@ -18,7 +19,7 @@ for(Node<ClusterNode<T>*>* i = myCluster->getPoints(); i != NULL; i = i->get_nex
 
 */
 
-
+/*
 template<class T>
 class ClusterNode
 {
@@ -26,22 +27,21 @@ class ClusterNode
         T point;
         T secondCentroid; //xreiazetai sto pam
         double distance; //apo to centroid
-		double secdistance; //distance apo to deutero centroid, an 8umamai kala xreiazetai kai h apostash. // <----------------------
+		double secDistance; //distance apo to deutero centroid, an 8umamai kala xreiazetai kai h apostash. // <----------------------
 
     public:
         ClusterNode(T data);
-        ClusterNode(T data, double dist, double secdist); // <------------------------------------------
+        ClusterNode(T data, double dist);
         ~ClusterNode();
 
         T getPoint();
         double getDistance();
         T getSecCentroid();
-		double getSecDistance(); // <---------------------- ektos kai an to briskoume emeis otan to xreiazomaste 
-
+		double getSecDistance();
         void setDistance(double dist);
         void setSecCentroid(T centroid2);
-		void setSecDistance(double secdist); // <--------------------------------
-};
+		void setSecDistance(double secdist);
+};*/
 
 template <class T>
 class Cluster
@@ -51,10 +51,12 @@ class Cluster
         List<ClusterNode<T>>* points;
 
     public:
+        Cluster();
         Cluster(T centr);
         ~Cluster();
 
         ClusterNode<T>* getPoints(); //epistrefei thn lista me ta shmeia
+        T getCentroid();
 
         ClusterNode<T>* insertPoint(T point); //epistrefei to node pou dhmiourgithike gia na kanoume set to distance kai to secondCentroid
         deletePoint(ClusterNode<T>* delPoint); //diagrafh tou shmeiou
