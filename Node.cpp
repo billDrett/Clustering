@@ -2,6 +2,7 @@
 #include "Node.h"
 #include "dataTypes.h"
 #include "euclideanNode.h"
+#include "clusterNode.h"
 
 template <class T>
 Node<T>::Node(T Data)
@@ -58,3 +59,9 @@ template class Node<Vector* >;
 template class Node<Hamming* >;
 template class Node<EuclideanNode* >;
 template class Node<MatrixPoint* >;
+template class Node<ClusterNode<Vector*>*>;
+template class Node<ClusterNode<Hamming*>*>;
+template class Node<ClusterNode<EuclideanNode*>*>;
+template class Node<ClusterNode<MatrixPoint*>*>;
+
+

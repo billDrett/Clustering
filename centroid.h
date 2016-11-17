@@ -48,20 +48,20 @@ class Cluster
 {
     private:
         T Centroid;
-        List<ClusterNode<T>>* points;
+        List<ClusterNode<T>*>* points;
 
     public:
         Cluster();
         Cluster(T centr);
         ~Cluster();
 
-        ClusterNode<T>* getPoints(); //epistrefei thn lista me ta shmeia
+        Node<ClusterNode<T>*>* getPoints(); //epistrefei thn lista me ta shmeia
         T getCentroid();
 
         void setCentroid(T centr);
 
         ClusterNode<T>* insertPoint(T point); //epistrefei to node pou dhmiourgithike gia na kanoume set to distance kai to secondCentroid
-        deletePoint(ClusterNode<T>* delPoint); //diagrafh tou shmeiou
+        void deletePoint(Node<ClusterNode<T>*>* delPoint); //diagrafh tou shmeiou
 
         /*
         isws thelei kai alles

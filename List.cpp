@@ -4,6 +4,7 @@
 #include "Node.h"
 #include "dataTypes.h"
 #include "euclideanNode.h"
+#include "clusterNode.h"
 using namespace std;
 
 template <class T>
@@ -189,4 +190,8 @@ template class List<Vector* >;
 template class List<Hamming* >;
 template class List<EuclideanNode* >;
 template class List<MatrixPoint* >;
+template class List<ClusterNode<Vector*>*>;
+template class List<ClusterNode<Hamming*>*>;
+template class List<ClusterNode<EuclideanNode*>*>;
+template class List<ClusterNode<MatrixPoint*>*>;
 

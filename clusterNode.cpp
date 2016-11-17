@@ -1,4 +1,6 @@
 #include "clusterNode.h"
+#include "dataTypes.h"
+#include "euclideanNode.h"
 
 template <class T>
 ClusterNode<T>::ClusterNode(T data)
@@ -60,3 +62,11 @@ void ClusterNode<T>::setSecCentroid(T centroid2)
 {
     secondCentroid = centroid2;
 }
+
+/*template class ClusterNode<int>;
+template class ClusterNode<double>;
+template class ClusterNode<std::string>;*/
+template class ClusterNode<Vector* >;
+template class ClusterNode<Hamming* >;
+template class ClusterNode<EuclideanNode* >;
+template class ClusterNode<MatrixPoint* >;
