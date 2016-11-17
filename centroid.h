@@ -26,18 +26,21 @@ class ClusterNode
         T point;
         T secondCentroid; //xreiazetai sto pam
         double distance; //apo to centroid
+		double secdistance; //distance apo to deutero centroid, an 8umamai kala xreiazetai kai h apostash. // <----------------------
 
     public:
         ClusterNode(T data);
-        ClusterNode(T data, double dist);
+        ClusterNode(T data, double dist, double secdist); // <------------------------------------------
         ~ClusterNode();
 
         T getPoint();
         double getDistance();
         T getSecCentroid();
+		double getSecDistance(); // <---------------------- ektos kai an to briskoume emeis otan to xreiazomaste 
 
         void setDistance(double dist);
         void setSecCentroid(T centroid2);
+		void setSecDistance(double secdist); // <--------------------------------
 };
 
 template <class T>
