@@ -32,6 +32,12 @@ double ClusterNode<T>::getDistance()
 }
 
 template <class T>
+double ClusterNode<T>::getSecDistance()
+{
+    return secDistance;
+}
+
+template <class T>
 T ClusterNode<T>::getSecCentroid()
 {
     return secondCentroid;
@@ -41,6 +47,12 @@ template <class T>
 void ClusterNode<T>::setDistance(double dist)
 {
     distance = dist;
+}
+
+template <class T>
+void ClusterNode<T>::setSecDistance(double secDist)
+{
+    secDistance = secDist;
 }
 
 template <class T>
