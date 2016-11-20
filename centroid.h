@@ -56,6 +56,7 @@ class Cluster
         ~Cluster();
 
         Node<ClusterNode<T>*>* getPoints(); //epistrefei thn lista me ta shmeia
+        int getNoPoints();
         T getCentroid();
 
         void setCentroid(T centr);

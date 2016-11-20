@@ -37,6 +37,12 @@ Node<ClusterNode<T>*>* Cluster<T>::getPoints()
 }
 
 template <class T>
+int Cluster<T>::getNoPoints()
+{
+    return points->getSize();
+}
+
+template <class T>
 T Cluster<T>::getCentroid()
 {
     return Centroid;

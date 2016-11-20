@@ -26,7 +26,7 @@ bool exists(Cluster<T>** clusters, T point, int k)
 {
     for(int i = 0; i < k; i++)
     {
-        if(clusters[i]->getCentroid() == point) //isws kalytera iso kapoio id
+        if(clusters[i]->getCentroid() == point) //isws kalytera iso kapoio id ta string id
         {
             return true;
         }
@@ -36,7 +36,7 @@ bool exists(Cluster<T>** clusters, T point, int k)
 }
 
 template <class T>
-T getRandomPoint(List<T>* myList, int pos) //epistrefei to tyxaio simeio
+T getPoint(List<T>* myList, int pos) //epistrefei to tyxaio simeio
 {
     int count = 0;
     for(Node<T>* i = myList->get_begin(); i != NULL; i = i->get_next())
@@ -58,7 +58,7 @@ void initialization(Cluster<T>** clusters, List<T>* points, int k) //pernei pina
     Node<T>* node;
     T tmp;
     double randomX;
-    tmp = getRandomPoint(points, randomNumberInt(0, points->getSize())); //pairnw tyxaio simeio vhma 1
+    tmp = getPoint(points, randomNumberInt(0, points->getSize())); //pairnw tyxaio simeio vhma 1
 
     clusters[0]->setCentroid(tmp);
 
@@ -112,8 +112,8 @@ void initialization(Cluster<T>** clusters, List<T>* points, int k) //pernei pina
             randomX = randomNumberDouble(0, PMetric[points->getSize()-1]);
             cout<<"random "<< randomX<<endl;
             cout<<"pos "<<binarySearch(PMetric, randomX, 0, points->getSize()-1)<<endl;
-            tmp = getRandomPoint(points, binarySearch(PMetric, randomX, 0, points->getSize()-1));
-        }while(exists(clusters, tmp, i+1));
+            tmp = getPoint(points, binarySearch(PMetric, randomX, 0, points->getSize()-1));
+        }while(exists(clusters, tmp, i+1)); //dn xreiazetai afou dn mporei na epileksoume to idio shmeio
 
 
         //an dn to exoyme epileksei
@@ -129,7 +129,7 @@ void initialization(Cluster<T>** clusters, List<T>* points, int k) //pernei pina
 //epistrefei to r
 int binarySearch(double* distances,  double searchPoint, int start, int end)
 {
-    for(int i = start; i <= end; i++)
+    /*for(int i = start; i <= end; i++)
     {
         if(distances[i]> searchPoint)
         {
@@ -137,17 +137,26 @@ int binarySearch(double* distances,  double searchPoint, int start, int end)
         }
     }
 
-    return -1; //sfalma
-    /*
-    if(end-start == 2)
+    return -1; //sfalma*/
+    //if(start > end) return
+    int middle = (start + end)/2;
+
+    if(end<=start)
     {
-        return end;
+        if(distances[end] < searchPoint) return end+1;
+        else return end; //dn mporei na vgei ektos pinaka
     }
-    int middle = (start+end)/2 + 1
-    if(distances[])*/
 
+    if(distances[middle] < searchPoint)
+    {
+        return binarySearch(distances, searchPoint, middle +1, end);
+    }
+    else
+    {
+        return binarySearch(distances, searchPoint, start, middle-1);
+    }
 }
-
+/*
 double sumP(double* distances,  int size)
 {
     double tmp = 0;
@@ -159,7 +168,7 @@ double sumP(double* distances,  int size)
     }
 
     return tmp;
-}
+}*/
 
 double maxDistance(double* distances, int size)
 {

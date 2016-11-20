@@ -9,7 +9,7 @@
 #include "euclideanNode.h"
 
 using namespace std;
-
+/*update allagi centroid me allo*/
 
 
 int main()
@@ -20,13 +20,13 @@ int main()
     //Cluster<T>** clusters, List<T>* points, int k
     List<EuclideanNode*>* myList = new List<EuclideanNode*>();
     Cluster<EuclideanNode*>** clusters = new Cluster<EuclideanNode*>*[5];
-    for(int i =0; i < 3; i++)
+    for(int i =0; i < 5; i++)
     {
         clusters[i] = new Cluster<EuclideanNode*>();
     }
    // cout<<t.getPoint()->get_coordinance(0)<<endl;
 
-    for(int i =0; i < 10; i++)
+    for(int i =0; i < 100; i++)
     {
         v1=new Vector("name1", 1, &(x *=i+1));
       //  myList.insertEnd(v1);
@@ -40,12 +40,16 @@ int main()
     cout<<endl;
 
 
-    initialization(clusters, myList, 3);
+    initialization(clusters, myList, 5);
 
     cout<<"END"<<endl<<endl;
-    for(int i =0; i < 3; i++)
+    for(int i =0; i < 5; i++)
     {
         cout<<clusters[i]->getCentroid()->get_vector()->get_coordinance(0)<<endl;
     }
+
+    /*double distanc[]={1,2,3,4,5,6,7,8,9};
+
+    cout<<distanc[binarySearch(distanc, 5.5, 0, 9)];*/
 
 }
